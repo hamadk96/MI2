@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" >
+		<meta name="description" content="beschrijving van de webpagina" >
+		<meta name="keywords" content="trefwoorden, gescheiden, door, komma's">
+        <meta name="viewport" content="width=device-width, height=device-height" />
+        <script type="text/javascript">
+            "use strict;"
+            function RekenMachine() {
+                this.TelOp = function(p1 , p2)
+                {
+                    return p1 + p2;
+                };
+                this.TelAf = function(p1,p2)
+                {
+                    return p1 - p2;
+                };
+                this.VermVuldig = function(p1,p2)
+                {
+                    return p1 * p2;
+                };
+                this.Deel = function(p1,p2)
+                {
+                    return p1 / p2;
+                };
+}
+            
+        </script>
+        
+		<title>RekenMachine</title>
+
+	</head>
+
+	<body>
+        <p><b>RekenMachine</b></p>
+        <p id="p1"></p>
+        
+        
+        <script> var RekenM = new RekenMachine();
+            var Uitkomst;
+            Uitkomst = RekenM.TelOp(5,5);
+            document.getElementById("p1").innerHTML = Uitkomst;
+        
+        </script>
+	</body>
+</html>

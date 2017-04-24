@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" >
+		<meta name="description" content="beschrijving van de webpagina" >
+		<meta name="keywords" content="trefwoorden, gescheiden, door, komma's">
+        <meta name="viewport" content="width=device-width, height=device-height" />
+        <script type="text/javascript">
+            "use strict;"
+            
+        function SchaakBord()
+        {
+                
+            for(i = 1; i<9;i++)
+                {
+                    for(j = 1; j<9;j++)
+                    {
+                        
+                        else if(i % 2 == 1 && j % 2 == 1)
+                        {
+                            document.body.innerHTML += '<div style="background-color:white;width: 50px; height:50px; float:left "></div>';
+                        }
+                        else if(i % 2 == 1 && j % 2 == 0)
+                        {
+                            
+                            document.body.innerHTML += '<div style="background-color:black;width: 50px; height:50px; float:left "></div>';
+                            
+                        }
+                        else if(i % 2 == 0 && j % 2 == 0)
+                        {
+                            
+                            document.body.innerHTML += '<div style="background-color:white;width: 50px; height:50px; float:left"></div>';
+                            
+                        }
+                        else 
+                        {
+                            document.body.innerHTML += '<div style="background-color:black;width: 50px; height:50px; float:left"></div>';
+                        }
+                    }
+                    
+                }
+                
+        }
+        </script>
+        
+		<title>Les 3 - Oef 1  - Schaakbord</title>
+
+	</head>
+
+	<body>
+        <script>
+            
+         var S = new SchaakBord();   
+            
+        </script>
+	</body>
+</html>

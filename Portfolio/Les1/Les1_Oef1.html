@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" >
+		<meta name="description" content="beschrijving van de webpagina" >
+		<meta name="keywords" content="trefwoorden, gescheiden, door, komma's">
+        <meta name="viewport" content="width=device-width, height=device-height" />
+        <script type="text/javascript">
+            "use strict;"
+            function TelOp(p1, p2)
+            {
+                return p1 + p2
+                
+            }
+            function TelAf(p1, p2)
+            {
+                return p1 - p2
+                
+            }
+            function VermVuldig(p1, p2)
+            {
+                return p1 * p2
+                
+            }
+            function Deel(p1, p2)
+            {
+                return p1 / p2
+                
+            }
+            
+        </script>
+        
+		<title>Oef1 - Wiskunde operatoren</title>
+
+	</head>
+
+	<body>
+        <p><b>Optellen</b></p>
+        <p id="p1"></p>
+        <br>
+        <p><b>Aftrekken</b></p>
+        <p id="p2"></p>
+        <br>
+        <p><b>Vermenigvuldigen</b></p>
+        <p id="p3"></p>
+        <br>
+        <p><b>Delen</b></p>
+        <p id="p4"></p>
+        <br>
+        
+        <script>document.getElementById("p1").textContent = TelOp(4,2);
+            document.getElementById("p2").textContent = TelAf(4,2);
+            document.getElementById("p3").textContent = VermVuldig(4,2);
+            document.getElementById("p4").textContent = Deel(4,2);
+        
+        </script>
+	</body>
+</html>
