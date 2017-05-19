@@ -1,0 +1,76 @@
+body{
+    background: darkorchid;
+    height: 100%;
+    width: 100%;
+}
+
+#spel{
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    z-index: -10;
+    width: 750px;
+    height: 840px;
+    background: grey;
+}
+
+#auto1{
+    position: absolute;
+    background: url("img/Police.png");
+    background-size: contain;
+    width: 128px;
+    height: 128px;
+    top: 710px;
+    left: 340px;
+ }
+
+#auto2{
+    position: absolute;
+    background-image: url("img/taxi.png");
+    background-size: contain;
+    width: 128px;
+    height: 128px;
+    left: 75px;
+
+}
+#auto3{
+    position: absolute;
+    background-image: url("img/Mini_truck.png");
+    background-size: contain;
+    width: 128px;
+    height: 128px;
+    left: 275px;
+
+}
+#auto4{
+    position: absolute;
+    background-image: url("img/Audi.png");
+    background-size: contain;
+    width: 128px;
+    height: 128px;
+    left: 475px;
+
+}
+#lijn1, #lijn2, #lijn3{
+    position: absolute;
+    z-index: -5;
+    left: 50%;
+    height: 15%;
+    width: 5%;
+    background-color: aliceblue;
+
+
+
+}
+
+#lijn1{
+    top: 0%;
+}
+
+#lijn2{
+    top:33%;
+}
+
+#lijn3{
+    top:66%;
+}
