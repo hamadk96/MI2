@@ -2,31 +2,27 @@ $(function () {
 
 
 var spel = $('#spel');
-var spelHeight = parseInt(spel.Height - "px");
-var spelWidth = parseInt(spel.Width);
+
 
 var auto = $('#auto1');
 
 var auto1 = $('#auto2');
-var auto1Width = parseInt(auto1.css('left'));
-var auto1Height = parseInt(auto1.css('top'));
+
 
 var auto2 = $('#auto3');
-var auto2Width = parseInt(auto2.css('left'));
-var auto2Height = parseInt(auto2.css('top'));
+
 
 var auto3 = $('#auto4');
-var auto3Width = parseInt(auto3.css('left'));
-var auto3Height = parseInt(auto3.css('top'));
+
 
 var lijn1 = $('#lijn1');
 var lijn1Height = parseInt(lijn1.css('top'));
 
 var lijn2 = $('#lijn2');
-var lijn2Height = parseInt(lijn2.css('top'));
+
 
 var lijn3 = $('#lijn3');
-var lijn3Height = parseInt(lijn3.css('top'));
+
 
 var music = $('#audioDemo');
 
