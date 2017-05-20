@@ -118,27 +118,50 @@ var hetSpel = setInterval(function()
 
 
 
-    maxValue = spel.width() - auto.width(),
-        keysPressed = {},
-        distancePerIteration = 3;
+    var hoogsteWaarde = spel.width() - auto.width();
+    var gedrukt = [];
+    var afstandPerIt = 3;
 
-    function calculateNewValue(oldValue, keyCode1, keyCode2) {
-        var newValue = parseInt(oldValue, 10)
-            - (keysPressed[keyCode1] ? distancePerIteration : 0)
-            + (keysPressed[keyCode2] ? distancePerIteration : 0);
-        return newValue < 0 ? 0 : newValue > maxValue ? maxValue : newValue;
+    function berekenNWaarde(oudeWaarde, toets1, toets2) {
+        var nieuweWaarde;
+        if (!gedrukt[toets1]) {
+            nieuweWaarde = parseInt(oudeWaarde, 10);
+            if (gedrukt[toets2]) {
+                nieuweWaarde += afstandPerIt;
+            }
+
+        } else {
+            nieuweWaarde = parseInt(oudeWaarde, 10) - afstandPerIt;
+            if (gedrukt[toets2]) {
+                nieuweWaarde += afstandPerIt;
+            }
+
+
+        }
+
+
+
+        if (nieuweWaarde < 0) {
+            return 0;
+        } else {
+            if (nieuweWaarde > hoogsteWaarde) {
+                return hoogsteWaarde;
+            } else {
+                return nieuweWaarde;
+            }
+        }
     }
 
-    $(window).keydown(function(event) { keysPressed[event.which] = true; });
-    $(window).keyup(function(event) { keysPressed[event.which] = false; });
+    $(window).keydown(function(event) { gedrukt[event.which] = true; });
+    $(window).keyup(function(event) { gedrukt[event.which] = false; });
 
     var bewegen = setInterval(function() {
         auto.css({
-            left: function(index ,oldValue) {
-                return calculateNewValue(oldValue, 37, 39);
+            left: function(index ,oudeWaarde) {
+                return berekenNWaarde(oudeWaarde, 37, 39);
             },
             top: function(index, oldValue) {
-                return calculateNewValue(oldValue, 38, 40);
+                return berekenNWaarde(oldValue, 38, 40);
             }
         });
     }, 20);
