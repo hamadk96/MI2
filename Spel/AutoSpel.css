@@ -1,5 +1,5 @@
 body{
-    background: darkorchid;
+    background: url(img/achtergrond-2.jpg) no-repeat;
     height: 100%;
     width: 90%;
 }
@@ -16,7 +16,7 @@ body{
 
 #auto1{
     position: absolute;
-    background: url("img/Police.png");
+    background-image: url("img/Police1.png");
     background-size: contain;
     width: 75px;
     height: 75px;
@@ -73,4 +73,21 @@ body{
 
 #lijn3{
     top:66%;
+}
+
+#score{
+    font-family: "Times New Roman", Times, serif;
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 50px;
+    top: -500px;
+    left: 20%;
+    border: double;
+    border-width: 2px;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration: solid;
+    color: antiquewhite;
+
 }

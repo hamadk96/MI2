@@ -1,65 +1,70 @@
 $(function () {
 
 
-var spel = $('#spel');
+    var spel = $('#spel');
 
 
-var auto = $('#auto1');
+    var auto = $('#auto1');
 
-var auto1 = $('#auto2');
-
-
-var auto2 = $('#auto3');
+    var auto1 = $('#auto2');
 
 
-var auto3 = $('#auto4');
+    var auto2 = $('#auto3');
 
 
-var lijn1 = $('#lijn1');
-var lijn1Height = parseInt(lijn1.css('top'));
-
-var lijn2 = $('#lijn2');
+    var auto3 = $('#auto4');
 
 
-var lijn3 = $('#lijn3');
+    var lijn1 = $('#lijn1');
+    var lijn1Height = parseInt(lijn1.css('top'));
+
+    var lijn2 = $('#lijn2');
 
 
-var music = $('#audioDemo');
+    var lijn3 = $('#lijn3');
 
 
-var snelheid = 3;
-var lijnSnelheid = 5;
-var score = 0;
-var verloren = false;
+    var music = $('#audioDemo');
 
 
-var hetSpel = setInterval(function()
-{
+    var snelheid = 3;
+    var lijnSnelheid = 5;
 
-    if(Botsing(auto,auto1,auto2,auto3))
-    {
-        clearInterval(hetSpel);
-        clearInterval(bewegen);
-        $.each($('audio'), function () {
-            this.pause();
-        });
+    var scoreText = $('#score2');
+    var score = 0;
+
+
+    var verlorenBool = false;
+
+
+    var hetSpel = setInterval(function()
+        {
+
+            if(Botsing(auto,auto1,auto2,auto3))
+            {
+                clearInterval(hetSpel);
+                clearInterval(bewegen);
+                clearInterval(scoreInt);
+                $.each($('audio'), function () {
+                this.pause();
+            });
+            verlorenBool = true;
 
     }
 
 
     var auto1HPos = parseInt(auto1.css('top'));
-    var auto1WPos = parseInt(auto1.css('left'));
+
 
     var auto2HPos = parseInt(auto2.css('top'));
-    var auto2WPos = parseInt(auto2.css('left'));
+
 
     var auto3HPos = parseInt(auto3.css('top'));
-    var auto3WPos = parseInt(auto3.css('left'));
+    
 
     var lijn1HPos = parseInt(lijn1.css('top'));
     var lijn2HPos = parseInt(lijn2.css('top'));
     var lijn3HPos = parseInt(lijn3.css('top'));
-
 
 
 
@@ -102,31 +107,30 @@ var hetSpel = setInterval(function()
     lijn3.css('top', lijn3HPos + lijnSnelheid);
 
 
-},40);
 
 
-
-        music.get(0).play();
-        music.prop('volume', 0.3);
-
-        music.hide();
+    },40);
 
 
+music.get(0).play();
+music.prop('volume', 0);
+music.hide();
 
 
-    var hoogsteWaarde = spel.width() - auto.width();
-    var gedrukt = [];
-    var afstandPerIt = 3;
+var hoogsteWaarde = spel.width() - auto.width();
+var gedrukt = [];
+var afstandPerIt = 3;
 
-    function berekenNWaarde(oudeWaarde, toets1, toets2) {
-        var nieuweWaarde;
-        if (!gedrukt[toets1]) {
-            nieuweWaarde = parseInt(oudeWaarde, 10);
-            if (gedrukt[toets2]) {
-                nieuweWaarde += afstandPerIt;
-            }
-
-        } else {
+function berekenNWaarde(oudeWaarde, toets1, toets2) {
+    var nieuweWaarde;
+    if (!gedrukt[toets1]) {
+        nieuweWaarde = parseInt(oudeWaarde, 10);
+        if (gedrukt[toets2]) {
+            nieuweWaarde += afstandPerIt;
+        }
+        }
+    else
+        {
             nieuweWaarde = parseInt(oudeWaarde, 10) - afstandPerIt;
             if (gedrukt[toets2]) {
                 nieuweWaarde += afstandPerIt;
@@ -134,15 +138,18 @@ var hetSpel = setInterval(function()
 
 
         }
-
-
-
-        if (nieuweWaarde < 0) {
-            return 0;
-        } else {
-            if (nieuweWaarde > hoogsteWaarde) {
-                return hoogsteWaarde;
-            } else {
+    if (nieuweWaarde < 0)
+    {
+        return 0;
+    }
+    else
+    {
+        if (nieuweWaarde > hoogsteWaarde)
+        {
+            return hoogsteWaarde;
+        }
+        else
+            {
                 return nieuweWaarde;
             }
         }
@@ -163,12 +170,50 @@ var hetSpel = setInterval(function()
     }, 20);
 
 
-    setInterval(function()
-    {
-        snelheid++;
-        lijnSnelheid++;
 
-    },10000);
+    var beginScore = setInterval(function()
+    {
+        if (score >= 300) {
+            if (score < 500) {
+                snelheid += 3;
+                lijnSnelheid += 3;
+            }
+            else if (score < 600) {
+                snelheid += 5;
+                lijnSnelheid += 5;
+            }
+            else if (score < 650) {
+                snelheid += 7;
+                lijnSnelheid += 7;
+            }
+            else {
+                snelheid += 9;
+                lijnSnelheid += 9;
+            }
+        } else {
+            snelheid += 1;
+            lijnSnelheid += 1;
+        }
+         console.log(snelheid);
+
+    },8000);
+
+
+
+
+
+
+
+
+
+        var scoreInt = setInterval(function () {
+            score++;
+            scoreText.text('Score:' + score);
+
+        }, 200);
+
+
+
 
 
     /**
