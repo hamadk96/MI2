@@ -1,7 +1,7 @@
 body{
     background: darkorchid;
     height: 100%;
-    width: 100%;
+    width: 90%;
 }
 
 #spel{
@@ -18,8 +18,8 @@ body{
     position: absolute;
     background: url("img/Police.png");
     background-size: contain;
-    width: 128px;
-    height: 128px;
+    width: 75px;
+    height: 75px;
     top: 710px;
     left: 340px;
  }
@@ -28,8 +28,8 @@ body{
     position: absolute;
     background-image: url("img/taxi.png");
     background-size: contain;
-    width: 128px;
-    height: 128px;
+    width: 75px;
+    height: 75px;
     left: 75px;
 
 }
@@ -37,8 +37,8 @@ body{
     position: absolute;
     background-image: url("img/Mini_truck.png");
     background-size: contain;
-    width: 128px;
-    height: 128px;
+    width: 75px;
+    height: 75px;
     left: 275px;
 
 }
@@ -46,17 +46,17 @@ body{
     position: absolute;
     background-image: url("img/Audi.png");
     background-size: contain;
-    width: 128px;
-    height: 128px;
+    width: 75px;
+    height: 75px;
     left: 475px;
 
 }
 #lijn1, #lijn2, #lijn3{
     position: absolute;
     z-index: -5;
-    left: 50%;
+    left: 48%;
     height: 15%;
-    width: 5%;
+    width: 2%;
     background-color: aliceblue;
 
 
