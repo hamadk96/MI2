@@ -90,6 +90,11 @@ $(function () {
         auto3.css('left', 475);
         spel.show();
         spel.children().show();
+        music.get(0).currentTime = 0;
+        music.get(0).play();
+        music.prop('volume', 0.1);
+
+        music.hide();
 
         startenSpel = setInterval(spelStart,spelStart2);
         startenBew = setInterval(bewegen2,20);
@@ -156,10 +161,7 @@ $(function () {
         lijn4.css('top', lijn4HPos + lijnSnelheid);
     }
 
-    music.get(0).play();
-    music.prop('volume', 0.0);
 
-    music.hide();
 
     var hoogsteWaarde = spel.width() - auto.width() + 80;
 
@@ -269,8 +271,9 @@ function berekenNWaarde(oudeWaarde, toets1, toets2) {
             spel.children().hide();
             $('#mobileControls').hide();
             play.show();
-            crash.play();
+            crash.get(0).play();
             crash.prop('volume', 0.15);
+
 
 
         }
