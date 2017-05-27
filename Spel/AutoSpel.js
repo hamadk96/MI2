@@ -1,5 +1,5 @@
 $(function () {
-
+    'use strict';
 
 
     var spel = $('#spel');
@@ -22,29 +22,61 @@ $(function () {
     var bool = false;
     var text = $('#text');
     var buttons = $('#buttons');
+    var up = $('#up');
+    var down = $('#down');
+    var left = $('#left');
+    var right = $('#right');
+    var instrPC = $('#instr');
+    var controls =  $('.controls');
 
 
     spel.hide();
     crash.hide();
+    $('#mobileControls').hide();
 
-    var play = buttons.append('<button style="font-family: arial;color: #14396A !important;' +
-        'font-size: 50px;text-shadow: 1px 1px 0px #7CACDE;' +
-        'box-shadow: 1px 1px 1px #BEE2F9;padding: 10px 25px;' +
-        ' -moz-border-radius: 10px; -webkit-border-radius: 10px;' +
-        'border-radius: 10px;border: 2px solid #3866A3;background: #63B8EE;' +
-        'background: linear-gradient(top,  #63B8EE,  #468CCF);background: -ms-linear-gradient(top,  #63B8EE,  #468CCF);' +
-        'background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));' +
-        'background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);">Play</button>');
+
+    var play = buttons.append('<button>Play</button>');
 
     var startenSpel;
     var startenBew;
     var startenSnelheid;
     var startenScore;
+    function isMobile() { return ('ontouchstart' in document.documentElement); }
+    if(isMobile())
+    {
+        scoreText.css('position','absolute');
+        scoreText.css('left',12 + '%');
+        scoreText.css('top',43 + '%');
+        scoreText.css('color','black');
+
+        controls.css('position','absolute');
+        controls.css('display','inline');
+        controls.css('top',70 +'%');
+        controls.css('width', 200 + 'px');
+        controls.css('height',200 + 'px');
+        controls.css('font-size',100 + 'px');
+
+        up.css('left', 45+'%');
+        up.css('top',65 + '%');
+
+        down.css('left', 45+'%');
+        down.css('top',85 + '%');
+
+        left.css('left', 25+'%');
+        left.css('top',75 + '%');
+
+        right.css('left', 75+'%');
+        right.css('top',65 + '%');
+    }
+
     play.on('click', function ()
     {
         snelheid = 3;
         lijnSnelheid = 5;
         score = 0;
+        text.html('');
+        instrPC.html('');
+        $('#mobileControls').show();
 
         welkom.hide();
         buttons.hide();
@@ -64,6 +96,8 @@ $(function () {
         startenSnelheid = setInterval(Snelheid,8000);
         startenScore = setInterval(scorePlus,200);
 
+
+
     });
     var spelStart2 = 40;
 
@@ -80,35 +114,35 @@ $(function () {
         var lijn3HPos = parseInt(lijn3.css('top'));
         var lijn4HPos = parseInt(lijn4.css('top'));
 
-        if(auto1HPos > 800)
+        if(auto1HPos > 1120)
         {
             auto1HPos = lijn1Height -100;
             auto1.css('left',Math.floor((Math.random() * 200) + 1));
 
         }
-        if(auto2HPos > 800)
+        if(auto2HPos > 1120)
         {
             auto2HPos = lijn1Height -100;
             auto2.css('left',Math.floor((Math.random() * 580) + 280));
         }
-        if(auto3HPos > 800)
+        if(auto3HPos > 1120)
         {
             auto3HPos = lijn1Height -100;
             auto3.css('left',Math.floor((Math.random() * 660) + 501));
         }
-        if(lijn1HPos > 800)
+        if(lijn1HPos > 1120)
         {
             lijn1HPos = lijn1Height -250;
         }
-        if(lijn2HPos > 800)
+        if(lijn2HPos > 1120)
         {
             lijn2HPos = lijn1Height - 250;
         }
-        if(lijn3HPos > 800)
+        if(lijn3HPos > 1120)
         {
             lijn3HPos = lijn1Height - 250;
         }
-        if(lijn4HPos > 800)
+        if(lijn4HPos > 1120)
         {
             lijn4HPos = lijn1Height - 250;
         }
@@ -123,14 +157,17 @@ $(function () {
     }
 
     music.get(0).play();
-    music.prop('volume', 0.1);
+    music.prop('volume', 0.0);
 
     music.hide();
 
-    var hoogsteWaarde = spel.width() - auto.width();
-    var gedrukt = [];
-    var afstandPerIt = 3;
+    var hoogsteWaarde = spel.width() - auto.width() + 80;
 
+
+    var afstandPerIt = 3;
+    var gedrukt = [];
+    $(window).keydown(function(event) { gedrukt[event.which] = true; });
+    $(window).keyup(function(event) { gedrukt[event.which] = false; });
 //Bewegen speler
 function berekenNWaarde(oudeWaarde, toets1, toets2) {
     var nieuweWaarde;
@@ -168,18 +205,48 @@ function berekenNWaarde(oudeWaarde, toets1, toets2) {
             }
         }
     }
-    $(window).keydown(function(event) { gedrukt[event.which] = true; });
-    $(window).keyup(function(event) { gedrukt[event.which] = false; });
+
     function bewegen2() {
         auto.css({
             left: function(index ,oudeWaarde) {
                 return berekenNWaarde(oudeWaarde, 37, 39);
             },
-            top: function(index, oldValue) {
-                return berekenNWaarde(oldValue, 38, 40);
+            top: function(index, oudeWaarde) {
+                return berekenNWaarde(oudeWaarde, 38, 40);
             }
         });
-    }
+
+     }
+
+     $(document).ready(function(){
+
+
+         document.body.style.zoom="60%";
+         up.click(function(){
+             auto.animate({'top': '-=40'}, 20)
+         });
+
+         down.click(function(){
+             auto.animate({'top': '+=40'}, 20)
+         });
+
+
+         left.click(function () {
+             auto.animate({'left': '-=40'}, 20)
+         });
+
+
+         right.click(function () {
+             auto.animate({'left': '+=40'}, 20)
+         });
+    });
+
+
+
+
+
+
+
 
     //Krijgt een Boolean terug van Botsing(arg1,arg2,arg3,arg4)
     //pakt 4 argumenten
@@ -200,9 +267,9 @@ function berekenNWaarde(oudeWaarde, toets1, toets2) {
 
 
             spel.children().hide();
-
+            $('#mobileControls').hide();
             play.show();
-            crash.get(0).play();
+            crash.play();
             crash.prop('volume', 0.15);
 
 
@@ -244,19 +311,6 @@ function berekenNWaarde(oudeWaarde, toets1, toets2) {
         scoreText.text('Score:' + score);
 
     }
-
-    /*setInterval(function () {
-        var imageAuto = auto.css('background-image');
-        if(imageAuto = 'url(img/Police1.png)')
-        {
-            auto.css('background-image','url(img/Police2.png)');
-        }
-        else if(imageAuto = 'url(img/Police2.png)')
-        {
-            auto.css('background-image','url(img/Police1.png)');
-        }
-    },800);*/
-
     /**
      * functie botsing
      * @return {boolean}
@@ -264,10 +318,10 @@ function berekenNWaarde(oudeWaarde, toets1, toets2) {
     function Botsing($_auto1,$_auto2,$_auto3,$_auto4)
     {
         //[x,y,width,height]
-        var auto1P = [parseInt($_auto1.css('left')),parseInt($_auto1.css('top')),$_auto1.outerWidth(true)-65,$_auto1.outerHeight(true)-10];
-        var auto2P = [parseInt($_auto2.css('left')),parseInt($_auto2.css('top')),$_auto2.outerWidth(true)-65,$_auto1.outerHeight(true)-10];
-        var auto3P = [parseInt($_auto3.css('left')),parseInt($_auto3.css('top')),$_auto3.outerWidth(true)-65,$_auto1.outerHeight(true)-10];
-        var auto4P = [parseInt($_auto4.css('left')),parseInt($_auto4.css('top')),$_auto4.outerWidth(true)-65,$_auto1.outerHeight(true)-10];
+        var auto1P = [parseInt($_auto1.css('left')),parseInt($_auto1.css('top')),$_auto1.outerWidth(true)-92,$_auto1.outerHeight(true)-12];
+        var auto2P = [parseInt($_auto2.css('left')),parseInt($_auto2.css('top')),$_auto2.outerWidth(true)-92,$_auto1.outerHeight(true)-12];
+        var auto3P = [parseInt($_auto3.css('left')),parseInt($_auto3.css('top')),$_auto3.outerWidth(true)-92,$_auto1.outerHeight(true)-12];
+        var auto4P = [parseInt($_auto4.css('left')),parseInt($_auto4.css('top')),$_auto4.outerWidth(true)-92,$_auto1.outerHeight(true)-12];
 
 
 

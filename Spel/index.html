@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Spel - Hamad Kurbanov</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5">
     <link rel="stylesheet" type="text/css" href="AutoSpel.css">
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 
 
 </head>
 <body>
-<audio id="audioDemo" controls preload="none">
-    <source src="music.mp3" type="audio/mpeg">
+<audio id="audioDemo" src="sound/music.mp3"></audio>
+<audio id="crash" src="sound/crash.wav"></audio>
 
-</audio>
+
+<div id="welkom"><h1 id="begin">Police on the road</h1></div>
+
 <div id="spel">
 
     <div id="auto1"></div>
@@ -21,12 +26,24 @@
     <div id="lijn1"></div>
     <div id="lijn2"></div>
     <div id="lijn3"></div>
+    <div id="lijn4"></div>
 
 
 </div>
 <div id="score"><p id="score2"></p></div>
-<script type="text/javascript" src="jquery-3.2.1.js"></script>
-<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<div id="buttons"></div>
+
+<p id="text">Navigate your car to avoid the other cars on the highway</p>
+<p id="instr">Use arrow keys to control your car</p>
+<p id="instrMob">Tap on the buttons to control your car</p>
+
+<div id="mobileControls">
+    <button  class ="controls"id="up">&uArr;</button>
+    <button  class ="controls" id="down"><b>&dArr;</b></button>
+    <button  class ="controls" id="left"><b>&lArr;</b></button>
+    <button  class ="controls" id="right"><b>&rArr;</b></button>
+</div>
+
 <script type="text/javascript" src="AutoSpel.js"></script>
 </body>
 </html>
