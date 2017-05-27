@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+        <meta name="description" content="" />
+        
+		<title>MI2-les3</title>
+        <script src="jquery-1.12.1.min.js"></script>
+
+                <script type="text/javascript">
+        
+        "use strict";
+            
+    $(document).ready(function ()
+    {
+        $('tbody tr:odd').css("background-color", "#ccc");
+        $('tbody tr:even').css("background-color", "#eee");
+        
+        $("#filter").change(function () 
+        {
+            var tekst = $(this).val();
+            $("tbody tr").hide();
+            $("tbody tr td:contains('" + tekst + "')").parent().show();
+        });
+    }); 
+        
+        
+        
+        </script>
+    </head>
+    <body>
+        
+ <!-- ********************************* JAVASCRIPT ********************************** -->
+
+        
+        
+        
+        <p>Filter: <input type="text" id="filter"> </p>
+        
+        
+        
+<!-- ********************************* TABEL ********************************** -->
+        <table id = "weerdata">
+        
+            <thead>
+             <tr> <th>plaats</th ><th>temperatuur</th> <th>wind</th> <th>vocht (%)</th> </tr>
+            </thead>
+            
+            <tbody>
+                <tr> <td>Brussel</td>       <td>15</td> <td></td> <td></td> </tr>
+                <tr> <td>Sint-Gillis</td>   <td>20</td> <td></td> <td></td> </tr>
+                <tr> <td>Vorst</td>         <td>16</td> <td>NW2</td> <td>90</td> </tr>
+                <tr> <td>Molenbeek</td>     <td>17</td> <td>NW3</td> <td>78</td> </tr>
+                <tr> <td>Dilbeek</td>       <td>18</td> <td>NW3</td> <td>84</td> </tr>
+                <tr> <td>Anderlecht</td>    <td>20</td> <td>NW2</td> <td>92</td> </tr>
+            </tbody>
+            
+        </table>
+        
+    </body>
+</html>

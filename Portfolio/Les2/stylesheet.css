@@ -1,0 +1,31 @@
+.schaakbord
+{
+    width           : 800px;
+    height          : 800px;
+    margin          : auto;
+    display         : block;
+    background-color: coral;
+}
+
+
+
+/* Zwarte blokjes */
+.schaaklZwart
+{
+    margin          : 0;
+    height          : 100px;
+    width           : 100px;
+    background-color: black;
+    float           : left;
+}
+
+
+/* Witte blokjes */
+.schaaklWit
+{
+    margin          : 0;
+    height          : 100px;
+    width           : 100px;
+    background-color: white;
+    float           : left;
+}

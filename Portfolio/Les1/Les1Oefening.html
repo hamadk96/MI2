@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+    <head>
+		
+        <title>Theorie</title>
+        
+        <meta charset="utf-8" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+        
+        <link rel="stylesheet" href="voorbeelden.css">
+
+	</head>
+    <body>
+
+        
+        <h1>Javascript (basis)</h1>
+        
+        <script type="text/javascript">
+            
+            
+ // ******************* SOORTEN var ****************       
+            
+            var string     = 'hallo';
+            var int        = 7;
+            
+            var berekening = 10 + 10;
+            
+            var array1     = new Array(10,10);
+            var array2     = [2,4,6];
+            var array3     = ['LOL','HOT','DOG'];
+            
+            var getala     = array2[1];
+            var stringa    = array3[2];
+            
+            
+            
+// ******************* document.write() = waarde tonen in string **************** 
+
+            document.write( 'string: '                + string     +
+                            '<br>int: '               + int        + 
+                            '<br>Berekening: '        + berekening + '<br>' +
+                            '<br>Array 1: '           + array1     +
+                            '<br>Array 2: '           + array2     +
+                            '<br>Array 3: '           + array3     + '<br>' +
+                            '<br>Getal uit Array 2: ' + getala     +
+                            '<br>Woord uit Array 3: ' + stringa    + '<br>' + '<br>' + '<br>');
+            
+            
+            document.write( '<h3>VOORBEELDEN VAN == EN === </h3>');
+   
+        
+//************************ UITLEG VAN == EN === ******************************
+            
+            
+            
+            //**********************************************
+            if(1 == 1)
+                {document.write( 'OK: 1 == 1'   + '<br>');}
+            else
+                {document.write( 'Niet OK: 1 == 1'   + '<br>');}
+            
+            
+            
+            //**********************************************
+            if(1 === 1)
+                {document.write( 'OK: 1 === 1'   + '<br>');}
+            else
+                {document.write( 'Niet OK: 1 === 1'   + '<br>');}
+            
+            
+            
+            //**********************************************
+            if(1 == '1')
+                {document.write( "OK: 1 == '1'"  + '<br>');}
+            else
+                {document.write( "Niet OK: 1 == '1'"   + '<br>');}
+            
+            
+            
+            //**********************************************
+            if(1 === '1')
+                {document.write( "OK: 1 === '1'" + '<br>');}
+            else
+                {document.write( "Niet OK: 1 === '1'"   + '<br>' + '<br>');}
+            
+            document.write( '==  = de WAARDE moet dezelfde zijn maar de type (string/int/boolean) heeft geen belang' + '<br>');
+            document.write( '=== = de WAARDE en de TYPE moeten dezelfde zijn');
+            
+            
+          
+// ******************* FUNCTIES ****************           
+            
+
+    /*      function telOpp() 
+            {
+	           return 1000 + 100;
+            }
+            
+        */
+            
+            
+            
+                        
+// ******************* VERKORTEN VAN EEN FUNCTIE if **************** 
+            
+          /*  
+            var waarde1 = 10;
+            var waarde2 = 0;
+            
+            if(waarde1 >0)
+            {
+	           waarde2 = 1;
+            }
+
+            // verkorte vorm :
+            var waarde2 = waarde1>0?1:0;
+
+            */
+            
+        </script>
+
+        
+ <!-- ************************************************************************************ -->
+        <br><br><br>
+        
+        <h1> Te kennen </h1> <br>
+        
+    <table> 
+        <thead> <tr> <th>Waarden</th>   <th>Beschrijving</th>                            </tr> </thead> 
+            <tbody>
+                <tr> <td>{}</td>        <td>Een leeg object</td>                         </tr>
+                <tr> <td>NaN</td>       <td>Javascript waarde voor ‘geen getal’</td>     </tr>
+                <tr> <td>null</td>      <td>Een variabele met een onbepaalde waarde</td> </tr>
+                <tr> <td>undefined</td> <td>Een niet gedefinieerde variabele</td>        </tr>
+            </tbody> 
+    </table>
+        
+
+        
+        
+	</body>
+</html>

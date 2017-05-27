@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+        <meta name="description" content="" />
+        
+		<title>MI2-les3</title>
+        <script src="jquery-1.12.1.min.js"></script>
+
+                <script type="text/javascript">
+        
+        "use strict";
+    
+            $(document).ready(function ()
+    {
+                // GAAT EEN NAAR VOOR
+                $("body>div>div>ul>li.actief").prev().css("color", "yellow");
+                
+                // ALLES NAAR VOOR
+                $("ul ul>li.actief").prevAll().css("color", "red");
+                
+                // ALLE SUBCONTENT
+                $("body>div>div>ul>li.actief").children().css("color", "blue");
+                
+                // ALLES HOOFDCONTENT BEHALVE ZICHZELF 
+                $("body>div>div>ul>li.actief").siblings().css("text-decoration", "underline");
+                
+                // ALLE VOLGENDE ELEMENTEN 
+                $("ul ul>li.actief").nextAll().css("font-weight", "bold");
+                
+        });
+            
+        
+        </script>
+    </head>
+    <body>
+        
+ <!-- ********************************* JAVASCRIPT ********************************** -->
+
+        
+
+        
+        
+        
+<!-- ********************************* LIJST ********************************** -->
+
+        <div>
+        <header>
+            <h1>TTTEL</h1>
+        </header>
+            
+        <div>
+            <ul>
+                <li>Hoofdstuk 1</li>
+                <li class = "actief ">Hoofdstuk 2
+                    <ul>
+                        <li>Paragraaf 1</li>
+                        <li>Paragraaf 2</li>
+                        <li class = "actief">Paragraaf 3</li>
+                        <li>Paragraaf 4</li>
+                        <li>Paragraaf 5</li>
+                    </ul>
+                </li>
+                <li>Hoofdstuk 3</li>
+                <li>Hoofdstuk 4</li>
+            </ul>
+        </div>
+        <footer><p>&copy; Copyright by Kubilay</p></footer>
+        </div>
+        
+    </body>
+</html>
